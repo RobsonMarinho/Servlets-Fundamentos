@@ -25,7 +25,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Empresa empresa = new Empresa();	//Criando empresa
 		empresa.setNome(nomeEmpresa);	//get nome da empresa
 		
-		 //Criando um banco
+	    //Criando um banco
 		Banco banco = new Banco();
 		banco.adiciona(empresa);	//Adiciona a empresa no banco!
 		
