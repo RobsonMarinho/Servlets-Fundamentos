@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	<!-- Controle de fluxo -->
+<c:url value="/novaEmpresa" var="linkServletNovaEmpresa" /> <!-- guarda o valor na vaariavel -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,8 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<!-- Criando formulário -->
-	<form action="/gerenciador/novaEmpresa" method="post">
+	<!-- SubCaminho para acessar a servlet -->
+	<form action="${linkServletNovaEmpresa}" method="post"> 
 	
 		Nome: <input type="text" name="nome"/>	<!--Cria a string "nome" e a caixa  --> 
 		<input type="submit"  />	<!-- Cria um botão -->
