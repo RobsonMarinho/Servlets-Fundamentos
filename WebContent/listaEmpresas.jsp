@@ -13,7 +13,7 @@
 	Lista de empresas: <br />
 	
 	<ul>	<!-- Realiza o laço -->
-		<c:forEatch items="${empresas}" var="empresa">	<!-- Acessa a variável empresa -->
+		<c:forEatch items="${empresas}" var="empresa">	<!--  Acessa a variável empresa  -->
 			<li> ${empresa.nome } </li>	<!--imprime o nome da empresa  -->
 		</c:forEatch>
 	</ul>
