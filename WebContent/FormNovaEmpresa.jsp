@@ -14,6 +14,8 @@
 	<form action="${linkServletNovaEmpresa}" method="post"> 
 	
 		Nome: <input type="text" name="nome"/>	<!--Cria a string "nome" e a caixa  --> 
+		Data Abertura: <input type="text" name="data"/> 
+		
 		<input type="submit"  />	<!-- Cria um botão -->
 	
 	</form>

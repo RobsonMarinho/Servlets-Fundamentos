@@ -1,12 +1,17 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 /**
  * Servlet implementation class NovaEmpresaServlet
@@ -15,17 +20,30 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/novaEmpresa")	//Chamada na URL
 public class NovaEmpresaServlet extends HttpServlet {
 	
+	
 	private static final long serialVersionUID = 1L;
        
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		System.out.println("Cadastrando nova empresa");
 		
-		String nomeEmpresa = request.getParameter("nome"); //Lê o parâmetro
-		Empresa empresa = new Empresa();	//Criando empresa
-		empresa.setNome(nomeEmpresa);	//get nome da empresa
+		String nomeEmpresa = request.getParameter("nome");	//Lê o parâmetro nome
+		String paramDataEmpresa = request.getParameter("data");	//Lê o parâmetro data
 		
-	    //Criando um banco
-		Banco banco = new Banco();
+		Date dataAbertura = null;	//Inicialização da variável
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");	//Envia a data para o formulário
+			dataAbertura = sdf.parse(paramDataEmpresa);
+		} catch (ParseException e) {
+			throw new ServletException(e);		
+		} 
+		
+		
+		Empresa empresa = new Empresa();	//Instância um objeto empresa
+		empresa.setNome(nomeEmpresa);	//Exibe o nome da empresa
+		empresa.setDataAbertura(dataAbertura);	//Exibe a data de abertura
+	    
+		Banco banco = new Banco();	//Instância um objeto banco
 		banco.adiciona(empresa);	//Adiciona a empresa no banco!
 	
 		//chama o JSP
