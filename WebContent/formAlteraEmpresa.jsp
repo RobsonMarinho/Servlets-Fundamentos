@@ -1,5 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	<!-- Controle de fluxo -->
-<c:url value="/novaEmpresa" var="linkServletNovaEmpresa" /> <!-- guarda o valor na vaariavel -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
+<c:url value="/alteraEmpresa" var="linkServletNovaEmpresa" /> <!-- guarda o valor na vaariavel -->
 
 <!DOCTYPE html>
 <html>
@@ -13,8 +16,8 @@
 	<!-- SubCaminho para acessar a servlet -->
 	<form action="${linkServletNovaEmpresa}" method="post"> 
 	
-		Nome: <input type="text" name="nome"/>	<!--Cria a string "nome" e a caixa  --> 
-		Data Abertura: <input type="text" name="data"/> 
+		Nome: <input type="text" name="nome" value="${empresa.nome }"/>	<!--Cria a string "nome" e a caixa  --> 
+		Data Abertura: <input type="text" name="data" value="<fmt:formatDate value="${èmpresa.dataAbertura }"  pattern="dd/MM/yyyy"/>"/> 
 		
 		<input type="submit"  />	<!-- Cria um botão -->
 	
