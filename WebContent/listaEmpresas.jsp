@@ -21,7 +21,11 @@
 	
 	<ul>	<!-- Realiza o laço -->
 		<c:forEach items="${empresas}" var="empresa">	<!-- Acessa a variável empresa -->
-			<li> ${empresa.nome } - <fmt:formatDate value="${èmpresa.dataAbertura }"  pattern="dd/MM/yyyy"/> </li>	<!--imprime o nome da empresa  -->
+			<li> 
+			${empresa.nome } - <fmt:formatDate value="${èmpresa.dataAbertura }"  pattern="dd/MM/yyyy"/> <!--imprime o nome da empresa  --> 
+			<a href="/gerenciador/removeEmpresa?id=${empresa.id }">remove</a>		<!-- Remove  empresa -->
+			
+			</li>	
 		</c:forEach>
 	</ul> 
 
