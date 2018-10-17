@@ -36,8 +36,10 @@ public class NovaEmpresaServlet extends HttpServlet {
 			dataAbertura = sdf.parse(paramDataEmpresa);
 		} catch (ParseException e) {
 			throw new ServletException(e);		
-		} 
-		
+		} catch (java.text.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Empresa empresa = new Empresa();	//Instância um objeto empresa
 		empresa.setNome(nomeEmpresa);	//Exibe o nome da empresa
@@ -47,9 +49,9 @@ public class NovaEmpresaServlet extends HttpServlet {
 		banco.adiciona(empresa);	//Adiciona a empresa no banco!
 	
 		//chama o JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
 		request.setAttribute("empresa", empresa.getNome());
 		rd.forward(request, response);
 	}
 
-}
+  }
