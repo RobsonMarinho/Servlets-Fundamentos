@@ -18,8 +18,8 @@
 	
 		Nome: <input type="text" name="nome" value="${empresa.nome }"/>	<!--Cria a string "nome" e a caixa  --> 
 		Data Abertura: <input type="text" name="data" value="<fmt:formatDate value="${èmpresa.dataAbertura }"  pattern="dd/MM/yyyy"/>"/> 
-		
-		<input type="submit"  />	<!-- Cria um botão -->
+			<input type="hidden" name="id" value="${empresa.id }">
+			<input type="submit"  />	<!-- Cria um botão -->
 	
 	</form>
 </body>
