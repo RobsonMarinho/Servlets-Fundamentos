@@ -35,6 +35,9 @@ public class AlteraEmpresaServlet extends HttpServlet {
 			dataAbertura = sdf.parse(paramDataEmpresa);
 		} catch (ParseException e) {
 			throw new ServletException(e);
+		} catch (java.text.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		System.out.println(id);
 		
